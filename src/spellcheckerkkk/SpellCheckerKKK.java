@@ -80,7 +80,7 @@ public class SpellCheckerKKK {
          try{
              Scanner scan;
              scan =  new Scanner (new File(filepath));
-             scan.useDelimiter("[,\n]");
+             scan.useDelimiter("[,\n]"); // One index (word) for each new line.
             while(scan.hasNext()){
                  records.add(scan.next());
              }
