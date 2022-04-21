@@ -6,7 +6,9 @@ Spellcheckers are used by many text-editor users to rectify spelling problems. I
 
 ### Project purpose:
 The spell checker's primary purpose is to provide uniform handling of multiple spell corrections. It reads the text and selects the terms it finds. It then matches each word to a previously established list of correctly written terms.And gives us some alternative if any word is spelled wrong.
-Expected results:
+
+
+### Expected results:
 We anticipate that it will detect the majority of spelling and typing problems. To provide a spelling suggestion that may or may not be right. To increase Performance. And lastly to save us more time while writing something.
 
 ### What was used:
