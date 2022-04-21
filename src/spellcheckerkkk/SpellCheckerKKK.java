@@ -7,11 +7,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SpellCheckerKKK {
-
     public static boolean spellCheck(String input, String[] dic){
         boolean noErrors = true;
-        if(!grammerCheck(input, input.length()))
-        {
+        if(!grammerCheck(input, input.length())){
             noErrors = false;
         }
         if(input.charAt(input.length() - 1)=='.'){
@@ -36,7 +34,6 @@ public class SpellCheckerKKK {
                 }
             }
         }
-
         return noErrors;
     }
 
@@ -51,8 +48,6 @@ public class SpellCheckerKKK {
         int length = dic.length;
         int i = 0;
         while(!valid && i < length){
-
-
             if(input.trim().equalsIgnoreCase(dic[i].trim())){
                 valid = true;
                 if(input.trim().equals("I")){
@@ -63,7 +58,6 @@ public class SpellCheckerKKK {
                 }
             }
             i++;
-
         }
         return valid;
     }
@@ -87,19 +81,15 @@ public class SpellCheckerKKK {
     public static String[] readDictionary(String filepath){
 
         ArrayList<String> records = new ArrayList<>();
-         try
-         {
+         try{
              Scanner scan;
              scan =  new Scanner (new File(filepath));
              scan.useDelimiter("[,\n]");
-
-             while(scan.hasNext())
-             {
+            while(scan.hasNext()){
                  records.add(scan.next());
              }
          }
-         catch(Exception e)
-         {
+         catch(Exception e){
              System.out.println(e);
          }
          String[] recordsArray = new String[records.size()];
@@ -115,11 +105,8 @@ public class SpellCheckerKKK {
         return sb.toString();
     }
 
-
     public static void main(String[] args){
-
-        String[] wordList =  readDictionary("C:\\Users\\MSI\\Documents\\NetBeansProjects\\SpellCheckerKKK\\src\\spellcheckerkkk\\wordlist.txt");
-//        String input = "bgaron yes";
+        String[] wordList =  readDictionary("C:\\Users\\MSI\\Documents\\NetBeansProjects\\SpellCheckerKKK\\src\\spellcheckerkkk\\wordlist.txt"); //The location of the list with the words.
         String input = new Scanner(System.in).nextLine();
         if(spellCheck(input,wordList)){
             System.out.println("No errors");
@@ -127,5 +114,4 @@ public class SpellCheckerKKK {
             System.out.print("Errors");
         }
     }
-
 }
