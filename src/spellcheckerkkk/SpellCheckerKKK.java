@@ -15,7 +15,7 @@ public class SpellCheckerKKK {
         if(input.charAt(input.length() - 1)=='.'){
             input = input.substring(0, input.length() -1);
         }
-        String[] splitted_Input = input.split("\\s+"); //In a sentence split the words wherever there is space.
+        String[] splitted_Input = input.split("\\s+"); //In case of a sentence, split the words wherever there is space.
         for(String currentCheck : splitted_Input){
             if(!isSpecial(currentCheck)){
                 if(!checkWord(currentCheck,dic)){
@@ -56,7 +56,7 @@ public class SpellCheckerKKK {
                 else if(input.trim().equals("i")){
                     valid = false;
                 }
-            }
+            } // Chekcs if the word 'I' is in the right form.
             i++;
         }
         return valid;
@@ -65,11 +65,11 @@ public class SpellCheckerKKK {
     public static boolean grammerCheck(String input, int length){
         boolean validGrammar =  true;
         int lastCharacter = length - 1;
-        if (input.charAt(lastCharacter)!='.'){
+        if (input.charAt(lastCharacter)!='.'){ // Condition that checks is there's a full stop at the end of the sentence.
             System.out.println("Missing full stop at the end of the sentences");
             validGrammar= false;
         }
-        if(!Character.isUpperCase(input.charAt(0))){
+        if(!Character.isUpperCase(input.charAt(0))){ // Condition that checks if the sentence starts with an uppercase letter.
             System.out.println("Must starts with an uppercase character or number");
         }
         return validGrammar;
@@ -103,11 +103,11 @@ public class SpellCheckerKKK {
 
     public static void main(String[] args){
         String[] wordList =  readDictionary("C:\\Users\\MSI\\Documents\\NetBeansProjects\\SpellCheckerKKK\\src\\spellcheckerkkk\\wordlist.txt"); //The location of the list with the words.
-        String input = new Scanner(System.in).nextLine();
-        if(spellCheck(input,wordList)){
-            System.out.println("No errors");
+        String input = new Scanner(System.in).nextLine(); // Get input from the user
+        if(spellCheck(input,wordList)){ 
+            System.out.println("No errors"); // Returns when there are no spelling or grammar issues.
         } else {
-            System.out.print("Errors");
+            System.out.print("Errors"); // Returns when there is one or more issues.
         }
     }
 }
