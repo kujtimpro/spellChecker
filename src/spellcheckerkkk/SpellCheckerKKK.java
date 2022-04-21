@@ -63,18 +63,14 @@ public class SpellCheckerKKK {
     }
 
     public static boolean grammerCheck(String input, int length){
-
         boolean validGrammar =  true;
         int lastCharacter = length - 1;
         if (input.charAt(lastCharacter)!='.'){
             System.out.println("Missing full stop at the end of the sentences");
             validGrammar= false;
-
         }
-        if(!Character.isUpperCase(input.charAt(0)))
-        {
+        if(!Character.isUpperCase(input.charAt(0))){
             System.out.println("Must starts with an uppercase character or number");
-
         }
         return validGrammar;
     }
@@ -101,8 +97,8 @@ public class SpellCheckerKKK {
         StringBuilder sb = new StringBuilder(str); // Take the value of string str and put it on a StringBuilder so we can manipulate it.
         char l = sb.charAt(lIdx), r = sb.charAt(rIdx); // Temporarely save the character on the left and the character on the rigt.
         sb.setCharAt(lIdx, r); 
-        sb.setCharAt(rIdx, l); //swap
-        return sb.toString();
+        sb.setCharAt(rIdx, l); // Swap.
+        return sb.toString(); // Return the string with swapped characters.
     }
 
     public static void main(String[] args){
