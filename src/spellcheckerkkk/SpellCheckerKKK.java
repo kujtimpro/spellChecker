@@ -15,7 +15,7 @@ public class SpellCheckerKKK {
         if(input.charAt(input.length() - 1)=='.'){
             input = input.substring(0, input.length() -1);
         }
-        String[] splitted_Input = input.split("\\s+");
+        String[] splitted_Input = input.split("\\s+"); //In a sentence split the words wherever there is space.
         for(String currentCheck : splitted_Input){
             if(!isSpecial(currentCheck)){
                 if(!checkWord(currentCheck,dic)){
@@ -38,7 +38,7 @@ public class SpellCheckerKKK {
     }
 
     public static boolean isSpecial(String input){
-        Pattern pattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE); //Regex matches everything except single character or number.
         Matcher match = pattern.matcher(input);
         return match.find();
     }
@@ -98,10 +98,10 @@ public class SpellCheckerKKK {
     }
 
     private static String swapChars(String str, int lIdx, int rIdx){
-        StringBuilder sb = new StringBuilder(str);
-        char l = sb.charAt(lIdx), r = sb.charAt(rIdx);
-        sb.setCharAt(lIdx, r);
-        sb.setCharAt(rIdx, l);
+        StringBuilder sb = new StringBuilder(str); // Take the value of string str and put it on a StringBuilder so we can manipulate it.
+        char l = sb.charAt(lIdx), r = sb.charAt(rIdx); // Temporarely save the character on the left and the character on the rigt.
+        sb.setCharAt(lIdx, r); 
+        sb.setCharAt(rIdx, l); //swap
         return sb.toString();
     }
 
